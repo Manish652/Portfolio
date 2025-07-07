@@ -1,25 +1,42 @@
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { 
+  Code, 
+  Palette, 
+  Server, 
+  Database, 
+  GitBranch, 
+  Terminal,
+  Layers,
+  Zap,
+  Globe
+} from "lucide-react";
 
 const skills = [
-  { name: "HTML/CSS", level: "expert", category: "frontend" },
-  { name: "JavaScript", level: "expert", category: "frontend" },
-  { name: "React", level: "expert", category: "frontend" },
-  { name: "Tailwind CSS", level: "expert", category: "frontend" },
-  { name: "Node.js", level: "proficient", category: "backend" },
-  { name: "Express", level: "intermediate", category: "backend" },
-  { name: "MongoDB", level: "intermediate", category: "backend" },
-  { name: "Git/GitHub", level: "expert", category: "tools" },
-  { name: "VS Code", level: "expert", category: "tools" },
+  { name: "HTML/CSS", level: "expert", category: "frontend", icon: Code },
+  { name: "JavaScript", level: "expert", category: "frontend", icon: Zap },
+  { name: "React", level: "expert", category: "frontend", icon: Layers },
+  { name: "Tailwind CSS", level: "expert", category: "frontend", icon: Palette },
+  { name: "Node.js", level: "proficient", category: "backend", icon: Server },
+  { name: "Express", level: "intermediate", category: "backend", icon: Globe },
+  { name: "MongoDB", level: "intermediate", category: "backend", icon: Database },
+  { name: "Git/GitHub", level: "expert", category: "tools", icon: GitBranch },
+  { name: "VS Code", level: "expert", category: "tools", icon: Terminal },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
 
+const levelColors = {
+  expert: "from-purple-400 via-pink-400 to-red-400",
+  proficient: "from-blue-400 via-cyan-400 to-teal-400", 
+  intermediate: "from-green-400 via-emerald-400 to-lime-400",
+  basic: "from-yellow-400 via-orange-400 to-red-400",
+};
+
 const levelGlow = {
-  expert: "glow-expert",
-  proficient: "glow-proficient",
-  intermediate: "glow-intermediate",
-  basic: "glow-basic",
+  expert: "shadow-purple-500/50",
+  proficient: "shadow-blue-500/50",
+  intermediate: "shadow-green-500/50", 
+  basic: "shadow-yellow-500/50",
 };
 
 const SkillsSection = () => {
@@ -32,44 +49,109 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="py-24 px-4 relative "
+      className="py-24 px-4 relative min-h-screen overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white tracking-wide">
-          My <span className="text-primary">Galaxy of Skills</span>
-        </h2>
+      {/* Cosmic Background Elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-pulse" />
+        <div className="absolute top-32 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping" />
+        <div className="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-1/3 w-1 h-1 bg-pink-400 rounded-full animate-ping" />
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+      </div>
 
-        {/* Filters */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+      <div className="container mx-auto max-w-6xl relative z-10">
+        {/* Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+            Skill <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Constellation</span>
+          </h2>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Navigate through my cosmic arsenal of technologies and tools
+          </p>
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex justify-center gap-4 mb-16 flex-wrap">
           {categories.map((cat, i) => (
             <button
               key={i}
               onClick={() => setActiveCategory(cat)}
-              className={cn(
-                "px-5 py-2 text-sm rounded-full border border-white/20 backdrop-blur-sm transition capitalize",
-                activeCategory === cat
-                  ? "bg-white text-black font-semibold"
-                  : "text-white hover:bg-white/10"
-              )}
+              className={`
+                px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 capitalize font-medium
+                ${activeCategory === cat
+                  ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-purple-400/50 shadow-lg shadow-purple-500/25"
+                  : "text-gray-300 border-gray-500/30 hover:bg-white/10 hover:border-gray-400/50 hover:text-white"
+                }
+              `}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        {/* Cosmic Skill Orbs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
-          {filteredSkills.map((skill, index) => (
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
+          {filteredSkills.map((skill, index) => {
+            const IconComponent = skill.icon;
+            return (
+              <div
+                key={index}
+                className={`
+                  group relative w-48 h-48 sm:w-52 sm:h-52 flex flex-col items-center justify-center
+                  rounded-full border-2 border-gray-600/30 backdrop-blur-sm
+                  transition-all duration-500 transform hover:scale-110 hover:-translate-y-2
+                  cursor-pointer overflow-hidden
+                  ${levelGlow[skill.level]}
+                `}
+                style={{
+                  background: `conic-gradient(from 0deg, ${levelColors[skill.level].split(' ').join(', ')}, transparent 70%)`,
+                  boxShadow: `0 0 30px ${levelGlow[skill.level].split('/')[0].split('-')[1]}/20`,
+                }}
+              >
+                {/* Inner Circle */}
+                <div className="absolute inset-2 rounded-full bg-slate-900/90 backdrop-blur-sm border border-gray-700/50" />
+                
+                {/* Rotating Ring */}
+                <div className="absolute inset-0 rounded-full border border-gray-500/20 animate-spin" style={{ animationDuration: '10s' }} />
+                
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-white group-hover:text-purple-300 transition-colors" />
+                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 group-hover:text-purple-200 transition-colors">
+                    {skill.name}
+                  </h3>
+                  <span className={`
+                    text-xs px-2 py-1 rounded-full font-medium capitalize
+                    bg-gradient-to-r ${levelColors[skill.level]} text-slate-900
+                  `}>
+                    {skill.level}
+                  </span>
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div className={`
+                  absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                  bg-gradient-to-r ${levelColors[skill.level]} blur-xl
+                `} style={{ zIndex: -1 }} />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(20)].map((_, i) => (
             <div
-              key={index}
-              className={cn(
-                "planet relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center text-center text-xs sm:text-sm font-semibold uppercase text-white border-2 rounded-full shadow-lg transition-all duration-500 transform hover:scale-105 hover:animate-float",
-                levelGlow[skill.level]
-              )}
-            >
-              <span className="z-10">{skill.name}</span>
-              <div className="absolute inset-0 rounded-full border border-white/10 blur-sm" />
-            </div>
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 3}s`,
+              }}
+            />
           ))}
         </div>
       </div>

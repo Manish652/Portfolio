@@ -17,13 +17,13 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     setTimeout(() => {
       alert("Message sent! I'll get back to you shortly. Thank you!");
       setIsSubmitting(false);
@@ -34,7 +34,7 @@ const ContactSection = () => {
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -63,54 +63,54 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { 
-      Icon: Linkedin, 
-      color: "from-blue-600 to-blue-700", 
+    {
+      Icon: Linkedin,
+      color: "from-blue-600 to-blue-700",
       name: "LinkedIn",
-      href: "https://linkedin.com/in/manishbhunia"
+      href: "https://linkedin.com/in/manishbhunia",
     },
-    { 
-      Icon: Twitter, 
-      color: "from-sky-500 to-sky-600", 
+    {
+      Icon: Twitter,
+      color: "from-sky-500 to-sky-600",
       name: "Twitter",
-      href: "https://twitter.com/manishbhunia"
+      href: "https://twitter.com/manishbhunia",
     },
-    { 
-      Icon: Instagram, 
-      color: "from-pink-500 to-pink-600", 
+    {
+      Icon: Instagram,
+      color: "from-pink-500 to-pink-600",
       name: "Instagram",
-      href: "https://instagram.com/manishbhunia"
+      href: "https://instagram.com/manishbhunia",
     },
-    { 
-      Icon: Twitch, 
-      color: "from-purple-600 to-purple-700", 
+    {
+      Icon: Twitch,
+      color: "from-purple-600 to-purple-700",
       name: "Twitch",
-      href: "https://twitch.tv/manishbhunia"
+      href: "https://twitch.tv/manishbhunia",
     },
   ];
 
   const formFields = [
-    { 
-      id: "name", 
-      label: "Your Name", 
-      type: "text", 
-      placeholder: "Enter your full name" 
+    {
+      id: "name",
+      label: "Your Name",
+      type: "text",
+      placeholder: "Enter your full name",
     },
-    { 
-      id: "email", 
-      label: "Your Email", 
-      type: "email", 
-      placeholder: "your.email@example.com" 
+    {
+      id: "email",
+      label: "Your Email",
+      type: "email",
+      placeholder: "your.email@example.com",
     },
   ];
 
   return (
     <section
       id="contact"
-      className="relative py-32 px-6 text-white overflow-hidden min-h-screen"
+      className="relative py-20 px-4 sm:px-6 text-white overflow-hidden min-h-screen"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 opacity-30">
+      {/* Background Glow */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
@@ -126,40 +126,48 @@ const ContactSection = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDuration: `${2 + Math.random() * 2}s`,
             }}
           />
         ))}
       </div>
 
       <div className="relative z-10 container mx-auto max-w-7xl">
-        {/* Header Section */}
+        {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full backdrop-blur-sm border border-white/10 mb-6">
             <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-sm font-medium text-purple-300">Let's Connect</span>
+            <span className="text-sm font-medium text-purple-300">
+              Let's Connect
+            </span>
           </div>
-          
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-            Get In <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Touch</span>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+            Get In{" "}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Touch
+            </span>
           </h2>
-          
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Have an exciting project in mind or want to collaborate on something amazing? 
-            I'd love to hear from you and bring your ideas to life.
+
+          <p className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto leading-relaxed px-2">
+            Have an exciting project in mind or want to collaborate on something
+            amazing? I'd love to hear from you and bring your ideas to life.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            {/* Contact Information Card */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 items-start">
+          {/* Contact & Social Info */}
+          <div className="space-y-10">
+            {/* Contact Info Card */}
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
                   <MessageCircle className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold">Contact Information</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold">
+                  Contact Information
+                </h3>
               </div>
 
               <div className="space-y-6">
@@ -187,9 +195,11 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social Links Card */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
-              <h4 className="font-semibold text-2xl mb-6 text-white">Connect with me</h4>
+            {/* Social Links */}
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/10 shadow-2xl">
+              <h4 className="font-semibold text-xl sm:text-2xl mb-6 text-white">
+                Connect with me
+              </h4>
 
               <div className="flex gap-4 flex-wrap">
                 {socialLinks.map(({ Icon, color, name, href }, idx) => (
@@ -210,7 +220,7 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-10 rounded-2xl border border-white/10 shadow-2xl">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl">
             <div className="flex items-center gap-3 mb-8">
               <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
                 <Send className="w-6 h-6 text-white" />
@@ -218,9 +228,9 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold">Send a Message</h3>
             </div>
 
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {formFields.map(({ id, label, type, placeholder }) => (
-                <div key={id} className="group">
+                <div key={id}>
                   <label htmlFor={id} className="block text-sm font-semibold mb-3 text-gray-200">
                     {label}
                   </label>
@@ -232,12 +242,12 @@ const ContactSection = () => {
                     value={formData[id]}
                     onChange={handleInputChange}
                     placeholder={placeholder}
-                    className="w-full px-5 py-4 rounded-xl border border-white/20 bg-black/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300 hover:border-white/30 backdrop-blur-sm"
+                    className="w-full px-4 py-3 text-sm sm:text-base rounded-xl border border-white/20 bg-black/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300 hover:border-white/30 backdrop-blur-sm"
                   />
                 </div>
               ))}
 
-              <div className="group">
+              <div>
                 <label htmlFor="message" className="block text-sm font-semibold mb-3 text-gray-200">
                   Your Message
                 </label>
@@ -249,13 +259,12 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Hello, I'd like to talk about..."
-                  className="w-full px-5 py-4 rounded-xl border border-white/20 bg-black/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300 hover:border-white/30 resize-none backdrop-blur-sm"
+                  className="w-full px-4 py-3 text-sm sm:text-base rounded-xl border border-white/20 bg-black/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-300 hover:border-white/30 resize-none backdrop-blur-sm"
                 />
               </div>
 
               <button
-                type="button"
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isSubmitting}
                 className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 hover:from-purple-600 hover:to-pink-600 hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-purple-500/25 ${
                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
@@ -273,7 +282,7 @@ const ContactSection = () => {
                   </>
                 )}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
