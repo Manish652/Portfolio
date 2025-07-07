@@ -13,11 +13,7 @@ const HeroSection = () => {
         alt="Astronaut"
         className="absolute top-18 right-8 w-24 md:w-[15rem] animate-float pointer-events-none opacity-80"
       />
-      <img
-        src="/up.avif"
-        alt="Rocket"
-        className="absolute top-80 left-88 w-20 md:w-[10rem] animate-float pointer-events-none opacity-80"
-      />
+   
 
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
