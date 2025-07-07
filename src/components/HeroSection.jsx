@@ -8,11 +8,16 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden text-white"
     >
       {/* Optional floating visuals */}
+
       <img
-        src="/lost.png"
-        alt="Astronaut"
-        className="absolute top-18 right-8 w-24 md:w-[15rem] animate-float pointer-events-none opacity-80"
-      />
+  src="/lost.png"
+  alt="Astronaut"
+  className="absolute w-28 md:w-[15rem] opacity-80 animate-float pointer-events-none 
+             top-47 left-1/2 transform -translate-x-1/2 
+             md:top-18 md:right-8 md:left-auto md:translate-x-0"
+/>
+
+
    
 
       <div className="container max-w-4xl mx-auto text-center z-10">

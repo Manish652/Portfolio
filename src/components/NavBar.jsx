@@ -53,16 +53,22 @@ function NavBar() {
           href="#hero"
           className="relative group flex items-center"
         >
-          <div className="relative">
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Manish
-            </span>
-            <span className="text-lg text-gray-400 ml-1">^^</span>
-            <span className="text-sm text-gray-500 ml-2">portfolio</span>
-            
-            {/* Animated underline */}
-            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
-          </div>
+          <div className="relative group flex items-center">
+  {/* Logo Image */}
+  <span className="w-8 h-8 md:w-10 md:h-10">
+    <img src="/m.png" alt="Logo" className="object-contain w-full h-full" />
+  </span>
+
+  {/* ^^ Text */}
+  <span className="text-lg md:text-xl text-purple-400 ml-1 font-semibold">^^</span>
+
+  {/* portfolio Text */}
+  <span className="text-sm md:text-base text-gray-400 ml-2">portfolio</span>
+
+  {/* Animated underline */}
+  <div className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 w-0 group-hover:w-full transition-all duration-300"></div>
+</div>
+
           
           {/* Floating particles around logo */}
           <div className="absolute inset-0 pointer-events-none">
