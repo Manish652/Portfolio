@@ -17,7 +17,6 @@ function NavBar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
       
-      // Update active section based on scroll position
       const sections = ["hero", "about", "projects", "contact"];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
@@ -48,29 +47,23 @@ function NavBar() {
       }`}
     >
       <div className="container px-4 mx-auto flex items-center justify-between">
-        {/* Logo */}
         <a
           href="#hero"
           className="relative group flex items-center"
         >
           <div className="relative group flex items-center">
-  {/* Logo Image */}
   <span className="w-8 h-8 md:w-10 md:h-10">
     <img src="/m.png" alt="Logo" className="object-contain w-full h-full" />
   </span>
 
-  {/* ^^ Text */}
   <span className="text-lg md:text-xl text-purple-400 ml-1 font-semibold">^^</span>
 
-  {/* portfolio Text */}
   <span className="text-sm md:text-base text-gray-400 ml-2">portfolio</span>
 
-  {/* Animated underline */}
   <div className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 w-0 group-hover:w-full transition-all duration-300"></div>
 </div>
 
           
-          {/* Floating particles around logo */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute -top-1 -right-1 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-75" />
             <div className="absolute -bottom-1 -left-1 w-0.5 h-0.5 bg-pink-400 rounded-full animate-pulse" />
@@ -98,19 +91,16 @@ function NavBar() {
                 }`} />
                 <span className="font-medium">{item.name}</span>
                 
-                {/* Active indicator */}
                 {isActive && (
                   <div className="absolute inset-0 rounded-full border border-purple-400/30 animate-pulse" />
                 )}
                 
-                {/* Hover glow effect */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/10 to-pink-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
               </a>
             );
           })}
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
           className="md:hidden relative p-2 rounded-full bg-slate-800/50 backdrop-blur-sm border border-purple-500/30 text-purple-300 hover:text-white hover:bg-purple-500/20 transition-all duration-300 group"
@@ -122,12 +112,10 @@ function NavBar() {
             <Menu className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
           )}
           
-          {/* Button glow */}
           <div className="absolute inset-0 rounded-full bg-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
         </button>
       </div>
 
-      {/* Mobile Nav Menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl shadow-purple-500/10">
           <div className="px-6 py-6 space-y-2">
@@ -151,25 +139,21 @@ function NavBar() {
                   }`} />
                   <span className="font-medium">{item.name}</span>
                   
-                  {/* Active indicator */}
                   {isActive && (
                     <div className="ml-auto w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
                   )}
                   
-                  {/* Hover effect */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/10 to-pink-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </a>
               );
             })}
           </div>
           
-          {/* Mobile menu cosmic decoration */}
           <div className="absolute top-2 right-4 w-1 h-1 bg-purple-400 rounded-full animate-ping" />
           <div className="absolute bottom-2 left-4 w-0.5 h-0.5 bg-pink-400 rounded-full animate-pulse" />
         </div>
       )}
       
-      {/* Floating cosmic particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(5)].map((_, i) => (
           <div
