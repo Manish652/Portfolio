@@ -211,4 +211,8 @@
 .animate-flicker {
   animation: flicker 1.5s infinite;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
