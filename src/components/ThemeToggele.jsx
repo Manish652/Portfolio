@@ -36,7 +36,7 @@ function ThemeToggle() {
   onClick={toggleTheme}
   className={cn(
     " absolute top-27 right-3 z-50 p-3 w-[4.5rem] drop-shadow-[0_0_10px_rgba(139,92,246,0.7)] rounded-full shadow-xl",  // pushed down
-    "bg-white text-black dark:bg-black dark:text-white",
+    "bg-blue-300 text-black dark:bg-black dark:text-white",
     "hover:scale-110 active:scale-95 transition-all duration-300",
     "border border-gray-300 dark:border-gray-700"
   )}

@@ -42,7 +42,7 @@ import { useEffect, useState } from "react";
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4;
+    const numberOfMeteors = 6;
     const newMeteors = [];
 
     for (let i = 0; i < numberOfMeteors; i++) {

@@ -10,6 +10,7 @@ import {
   Zap,
   Globe
 } from "lucide-react";
+import Reveal from "./Reveal";
 
 const skills = [
   { name: "HTML/CSS", level: "expert", category: "frontend", icon: Code },
@@ -62,79 +63,77 @@ const SkillsSection = () => {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
-            Skill <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Constellation</span>
-          </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Navigate through my cosmic arsenal of technologies and tools
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+              Skill <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Constellation</span>
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Navigate through my cosmic arsenal of technologies and tools
+            </p>
+          </div>
+        </Reveal>
 
         {/* Category Filters */}
-        <div className="flex justify-center gap-4 mb-16 flex-wrap">
-          {categories.map((cat, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveCategory(cat)}
-              className={`
-                px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 capitalize font-medium
-                ${activeCategory === cat
-                  ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-purple-400/50 shadow-lg shadow-purple-500/25"
-                  : "text-gray-300 border-gray-500/30 hover:bg-white/10 hover:border-gray-400/50 hover:text-white"
-                }
-              `}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <div className="flex justify-center gap-4 mb-16 flex-wrap">
+            {categories.map((cat, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveCategory(cat)}
+                className={`
+                  px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 capitalize font-medium
+                  ${activeCategory === cat
+                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-purple-400/50 shadow-lg shadow-purple-500/25"
+                    : "text-gray-300 border-gray-500/30 hover:bg-white/10 hover:border-gray-400/50 hover:text-white"
+                  }
+                `}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
           {filteredSkills.map((skill, index) => {
             const IconComponent = skill.icon;
             return (
-              <div
-                key={index}
-                className={`
-                  group relative w-48 h-48 sm:w-52 sm:h-52 flex flex-col items-center justify-center
-                  rounded-full border-2 border-gray-600/30 backdrop-blur-sm
-                  transition-all duration-500 transform hover:scale-110 hover:-translate-y-2
-                  cursor-pointer overflow-hidden
-                  ${levelGlow[skill.level]}
-                `}
-                style={{
-                  background: `conic-gradient(from 0deg, ${levelColors[skill.level].split(' ').join(', ')}, transparent 70%)`,
-                  boxShadow: `0 0 30px ${levelGlow[skill.level].split('/')[0].split('-')[1]}/20`,
-                }}
-              >
-                {/* Inner Circle */}
-                <div className="absolute inset-2 rounded-full bg-slate-900/90 backdrop-blur-sm border border-gray-700/50" />
-                
-                {/* Rotating Ring */}
-                <div className="absolute inset-0 rounded-full border border-gray-500/20 animate-spin" style={{ animationDuration: '10s' }} />
-                
-                {/* Content */}
-                <div className="relative z-10 text-center">
-                  <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-white group-hover:text-purple-300 transition-colors" />
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 group-hover:text-purple-200 transition-colors">
-                    {skill.name}
-                  </h3>
-                  <span className={`
-                    text-xs px-2 py-1 rounded-full font-medium capitalize
-                    bg-gradient-to-r ${levelColors[skill.level]} text-slate-900
-                  `}>
-                    {skill.level}
-                  </span>
+              <Reveal key={index} delay={0.2 + index * 0.05}>
+                <div
+                  className={`
+                    group relative w-48 h-48 sm:w-52 sm:h-52 flex flex-col items-center justify-center
+                    rounded-full border-2 border-gray-600/30 backdrop-blur-sm
+                    transition-all duration-500 transform hover:scale-110 hover:-translate-y-2
+                    cursor-pointer overflow-hidden
+                    ${levelGlow[skill.level]}
+                  `}
+                  style={{
+                    background: `conic-gradient(from 0deg, ${levelColors[skill.level].split(' ').join(', ')}, transparent 70%)`,
+                    boxShadow: `0 0 30px ${levelGlow[skill.level].split('/')[0].split('-')[1]}/20`,
+                  }}
+                >
+                  <div className="absolute inset-2 rounded-full bg-slate-900/90 backdrop-blur-sm border border-gray-700/50" />
+                  <div className="absolute inset-0 rounded-full border border-gray-500/20 animate-spin" style={{ animationDuration: '10s' }} />
+                  <div className="relative z-10 text-center">
+                    <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-white group-hover:text-purple-300 transition-colors" />
+                    <h3 className="text-sm sm:text-base font-semibold text-white mb-1 group-hover:text-purple-200 transition-colors">
+                      {skill.name}
+                    </h3>
+                    <span className={`
+                      text-xs px-2 py-1 rounded-full font-medium capitalize
+                      bg-gradient-to-r ${levelColors[skill.level]} text-slate-900
+                    `}>
+                      {skill.level}
+                    </span>
+                  </div>
+                  <div className={`
+                    absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                    bg-gradient-to-r ${levelColors[skill.level]} blur-xl
+                  `} style={{ zIndex: -1 }} />
                 </div>
-
-                {/* Hover Glow Effect */}
-                <div className={`
-                  absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                  bg-gradient-to-r ${levelColors[skill.level]} blur-xl
-                `} style={{ zIndex: -1 }} />
-              </div>
+              </Reveal>
             );
           })}
         </div>
