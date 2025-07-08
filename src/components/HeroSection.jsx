@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import CosmicScrollIndicator from "./CosmicScrollIndicator";
+import ArcReactorProfile from "./ArcReactorProfile";
 
 // Mock TypeAnimation for demo
 const TypeAnimation = ({ sequence, wrapper: Wrapper = "span", speed, repeat, className }) => {
@@ -182,8 +183,8 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Enhanced Astronaut with Cosmic Effects */}
-      <div className="absolute top-47 left-1/2 transform -translate-x-1/2 md:top-18 md:right-8 md:left-auto md:translate-x-0 pointer-events-none">
+      {/* Enhanced Astronaut with Cosmic Effects - Hidden on mobile */}
+      <div className="absolute top-47 left-1/2 transform -translate-x-1/2 md:top-18 md:right-8 md:left-auto md:translate-x-0 pointer-events-none hidden md:block">
         {/* Cosmic Aura around Astronaut */}
         <div className="absolute inset-0 -m-8">
           <div className="w-full h-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 rounded-full blur-2xl animate-pulse" />
@@ -217,6 +218,18 @@ const HeroSection = () => {
           className="relative z-10 w-28 md:w-[15rem] opacity-80 animate-float filter drop-shadow-2xl"
         />
       </div>
+      
+      
+
+      {/* Arc Reactor Profile Image - Above typing text */}
+      <div className="absolute top-60 left-1/2 transform -translate-x-1/2 z-20">
+  <ArcReactorProfile />
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
 
       {/* Main Content with Enhanced Effects */}
       <div className="container max-w-4xl mx-auto text-center z-10 relative">
@@ -329,8 +342,6 @@ const HeroSection = () => {
       </div>
 
       <CosmicScrollIndicator/>
-
-
 
       {/* Shooting Stars */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

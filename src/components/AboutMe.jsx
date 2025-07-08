@@ -1,10 +1,13 @@
-import { BrickWall, Code, User, Rocket, Star, Zap } from 'lucide-react';
-import React from 'react';
-import Reveal from './Reveal'; // 👈 Your scroll animation component
+import { BrickWall, Code, User, Rocket, Star, Zap } from "lucide-react";
+import React from "react";
+import Reveal from "./Reveal"; // 👈 Your scroll animation component
 
 function AboutMe() {
   return (
-    <section id="about" className="py-24 px-4 relative min-h-screen overflow-hidden">
+    <section
+      id="about"
+      className="py-24 px-4 relative min-h-screen overflow-hidden"
+    >
       {/* Cosmic Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-pulse" />
@@ -20,7 +23,10 @@ function AboutMe() {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
-              About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Me</span>
+              About{" "}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Me
+              </span>
               <span className="text-2xl align-super">✨</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full" />
@@ -37,18 +43,25 @@ function AboutMe() {
                   <div className="flex items-center gap-3 mb-6">
                     <Rocket className="w-8 h-8 text-purple-400" />
                     <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      A MERN StacHi, I’m Manish Bhunia — a 2nd-year student with a passion for Backend Development and Cybersecurity. I'm constantly learning and building cool projects that blend performance, scalability, and security.k Developer from India
+                      A MERN StacHi, I’m Manish Bhunia — a 2nd-year student with
+                      a passion for Backend Development and Cybersecurity. I'm
+                      constantly learning and building cool projects that blend
+                      performance, scalability, and security.k Developer from
+                      India
                     </h3>
                   </div>
-                  
+
                   <div className="space-y-6 text-lg">
                     <p className="text-gray-300 leading-relaxed">
-                      I'm a self-taught developer focused on building meaningful things — not chasing trends. I've skipped PHP in favor of powerful stacks like Django and MERN, and I care about crafting clean, real-world solutions.
+                      I'm a self-taught developer focused on building meaningful
+                      things — not chasing trends. I've skipped PHP in favor of
+                      powerful stacks like Django and MERN, and I care about
+                      crafting clean, real-world solutions.
                     </p>
                     <p className="text-gray-300 leading-relaxed">
-Languages: Python, JavaScript, C++, Java
-Communication: Bengali, English, Hindi
-Focus: Backend Engineering, Web Security, System Design, AI/ML, Open Source-screen, I'm a 
+                      Languages: Python, JavaScript, C++, Java Communication:
+                      Bengali, English, Hindi Focus: Backend Engineering, Web
+                      Security, System Design, AI/ML, Open Source-screen, I'm a
                     </p>
                   </div>
 
@@ -108,11 +121,16 @@ Focus: Backend Engineering, Web Security, System Design, AI/ML, Open Source-scre
                   className={`group relative backdrop-blur-sm bg-slate-800/40 border border-gray-700/50 rounded-2xl p-6 transition-all duration-300 hover:${item.glow} hover:scale-105 hover:-translate-y-1 overflow-hidden`}
                 >
                   {/* Background Glow */}
-                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${item.gradient} blur-3xl`} style={{ zIndex: -1 }} />
-                  
+                  <div
+                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${item.gradient} blur-3xl`}
+                    style={{ zIndex: -1 }}
+                  />
+
                   {/* Content */}
                   <div className="flex items-start gap-4 relative z-10">
-                    <div className={`p-4 rounded-full bg-gradient-to-r ${item.gradient} shadow-lg transition-all duration-300 group-hover:rotate-6 group-hover:scale-110`}>
+                    <div
+                      className={`p-4 rounded-full bg-gradient-to-r ${item.gradient} shadow-lg transition-all duration-300 group-hover:rotate-6 group-hover:scale-110`}
+                    >
                       <item.Icon className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
