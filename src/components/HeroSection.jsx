@@ -221,18 +221,16 @@ const HeroSection = () => {
       
       
 
-      {/* Arc Reactor Profile Image - Above typing text */}
-      <div className="absolute top-60 left-1/2 transform -translate-x-1/2 z-20">
+<div className="absolute top-67 md:top-67 left-1/2 transform -translate-x-1/2 z-20">
   <ArcReactorProfile />
 </div>
-<br/>
-<br/>
-<br/>
-<br/>
+
+
+
 
 
       {/* Main Content with Enhanced Effects */}
-      <div className="container max-w-4xl mx-auto text-center z-10 relative">
+      <div className="container max-w-4xl mx-auto text-center z-10 relative mt-50 md:mt-50">
         {/* Cosmic Dust Trail behind content */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
