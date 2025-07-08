@@ -37,7 +37,7 @@ function AboutMe() {
                   <div className="flex items-center gap-3 mb-6">
                     <Rocket className="w-8 h-8 text-purple-400" />
                     <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      A MERN Stack Developer from India
+                      A MERN StacHi, I’m Manish Bhunia — a 2nd-year student with a passion for Backend Development and Cybersecurity. I'm constantly learning and building cool projects that blend performance, scalability, and security.k Developer from India
                     </h3>
                   </div>
                   
@@ -46,7 +46,9 @@ function AboutMe() {
                       I'm a self-taught developer focused on building meaningful things — not chasing trends. I've skipped PHP in favor of powerful stacks like Django and MERN, and I care about crafting clean, real-world solutions.
                     </p>
                     <p className="text-gray-300 leading-relaxed">
-                      Off-screen, I'm a deep thinker who dives into the unexplored — from mysterious creatures like the Stronsay Beast to the philosophical idea of the first "HOW" of existence. I also connect deeply with anime that blend story, philosophy, and soul.
+Languages: Python, JavaScript, C++, Java
+Communication: Bengali, English, Hindi
+Focus: Backend Engineering, Web Security, System Design, AI/ML, Open Source-screen, I'm a 
                     </p>
                   </div>
 
