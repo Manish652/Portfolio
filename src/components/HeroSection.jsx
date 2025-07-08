@@ -220,10 +220,19 @@ const HeroSection = () => {
       </div>
       
       
-
-<div className="absolute top-67 md:top-67 left-1/2 transform -translate-x-1/2 z-20">
+<div className="
+  absolute 
+  top-[300px]       /* default: mobile (xs < 640px) */
+  sm:top-[260px]    /* small devices (≥640px) */
+  md:top-[280px]    /* medium devices (≥768px) */
+  lg:top-[270px]    /* large devices (≥1024px) */
+  left-1/2 
+  transform -translate-x-1/2 
+  z-20
+">
   <ArcReactorProfile />
 </div>
+
 
 
 
