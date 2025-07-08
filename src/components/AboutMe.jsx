@@ -43,26 +43,33 @@ function AboutMe() {
                   <div className="flex items-center gap-3 mb-6">
                     <Rocket className="w-8 h-8 text-purple-400" />
                     <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      A MERN StacHi, I’m Manish Bhunia — a 2nd-year student with
-                      a passion for Backend Development and Cybersecurity. I'm
-                      constantly learning and building cool projects that blend
-                      performance, scalability, and security.k Developer from
-                      India
+                      MERN Stack Developer from India
                     </h3>
                   </div>
 
                   <div className="space-y-6 text-lg">
                     <p className="text-gray-300 leading-relaxed">
-                      I'm a self-taught developer focused on building meaningful
-                      things — not chasing trends. I've skipped PHP in favor of
-                      powerful stacks like Django and MERN, and I care about
-                      crafting clean, real-world solutions.
+                      Hi, I'm Manish Bhunia — a 2nd-year student with a passion for Backend Development and Cybersecurity. 
+                      I'm constantly learning and building projects that blend performance, scalability, and security.
                     </p>
                     <p className="text-gray-300 leading-relaxed">
-                      Languages: Python, JavaScript, C++, Java Communication:
-                      Bengali, English, Hindi Focus: Backend Engineering, Web
-                      Security, System Design, AI/ML, Open Source-screen, I'm a
+                      I'm a self-taught developer focused on building meaningful solutions — not chasing trends. 
+                      I've skipped PHP in favor of powerful stacks like Django and MERN, and I care about crafting clean, real-world applications.
                     </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                      <div>
+                        <h4 className="text-purple-400 font-semibold mb-2">Languages</h4>
+                        <p className="text-gray-400">Python, JavaScript, C++, Java</p>
+                      </div>
+                      <div>
+                        <h4 className="text-purple-400 font-semibold mb-2">Communication</h4>
+                        <p className="text-gray-400">Bengali, English, Hindi</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <h4 className="text-purple-400 font-semibold mb-2">Focus Areas</h4>
+                        <p className="text-gray-400">Backend Engineering, Web Security, System Design, AI/ML, Open Source</p>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 pt-8">

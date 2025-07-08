@@ -222,7 +222,7 @@ const HeroSection = () => {
       
 <div className="
   absolute 
-  top-[300px]       /* default: mobile (xs < 640px) */
+  top-[250px]       /* default: mobile (xs < 640px) */
   sm:top-[260px]    /* small devices (≥640px) */
   md:top-[280px]    /* medium devices (≥768px) */
   lg:top-[270px]    /* large devices (≥1024px) */
@@ -279,7 +279,7 @@ const HeroSection = () => {
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="inline-block relative z-10 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent drop-shadow-2xl"
+              className="inline-block relative z-10 bg-clip-text text-blue-200 drop-shadow-2xl"
             />
             
             {/* Floating sparkles around title */}
@@ -306,7 +306,7 @@ const HeroSection = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 blur-xl animate-pulse opacity-50" />
             <span className="relative z-10 drop-shadow-lg">
-              I specialize in MERN stack with experience in Django, building full-stack apps, REST APIs, and dynamic UIs.
+              I specialize in MERN stack building full-stack apps, REST APIs, and dynamic UIs.
             </span>
           </motion.p>
 
