@@ -185,18 +185,18 @@ const HeroSection = () => {
 
       {/* Professional Profile Image - Fixed Mobile Positioning */}
       <div className="
-  absolute 
-  top-[120px]                /* Mobile devices */
-  sm:top-[130px]             /* Small tablets */
-  md:top-[160px]             /* Medium tablets */
-  left-1/2 
-  transform -translate-x-1/2 
-  md:translate-x-0 md:left-12 
-  lg:top-1/2 lg:left-8 
-  lg:-translate-y-1/2 
-  xl:left-20 
-  2xl:left-32 
-  pointer-events-none
+      absolute 
+      top-[120px]                /* Mobile devices */
+      sm:top-[130px]             /* Small tablets */
+      md:top-[160px]             /* Medium tablets */
+      left-1/2 
+      transform -translate-x-1/2 
+      md:translate-x-0 md:left-12 
+      lg:top-1/2 lg:left-8 
+      lg:-translate-y-1/2 
+      xl:left-20 
+      2xl:left-32 
+      pointer-events-none
 ">
   <div className="relative">
 
@@ -222,7 +222,6 @@ const HeroSection = () => {
       />
     </div>
 
-    {/* Floating Code Symbols */}
     {['<', '>', '{', '}', '(', ')'].map((symbol, i) => (
       <div
         key={i}
@@ -352,7 +351,7 @@ const HeroSection = () => {
                 2000,
               ]}
               wrapper="span"
-              speed={50}
+              speed={10}
               repeat={Infinity}
               className="inline-block relative z-10 bg-clip-text text-blue-200 drop-shadow-2xl"
             />
