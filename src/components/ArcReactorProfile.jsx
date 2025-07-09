@@ -75,7 +75,7 @@ const ArcReactorProfile = () => {
           <img
             src="/icon.jpg"
             alt="Manish Bhunia"
-            className="w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-2 border-white shadow-2xl"
+            className="w-20 h-20 sm:w-36 sm:h-36 md:w-34 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-2 border-white shadow-2xl"
           />
         </div>
       </div>
