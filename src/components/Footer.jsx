@@ -2,14 +2,9 @@ import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="relative bg-black text-white py-16 mt-24 overflow-hidden border-t border-white/10">
+    <footer className="relative bg-gradient-to-t from-slate-900 via-purple-900/30 to-transparent backdrop-blur-md shadow-inner border-t border-purple-900/30 text-white py-16 mt-24 overflow-hidden border-t border-white/10">
       {/* Unique Cosmic Blurred Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Glowing nebula shapes */}
-        <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-gradient-to-br from-purple-700 via-indigo-500 to-transparent opacity-30 blur-3xl rounded-full animate-pulse" />
-        <div className="absolute bottom-[-120px] right-[-80px] w-[500px] h-[500px] bg-gradient-to-tr from-pink-500 via-purple-400 to-transparent opacity-30 blur-[160px] rounded-full animate-pulse delay-300" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-r from-blue-500/30 via-transparent to-purple-600/20 blur-[150px] rotate-12 animate-float" />
-      </div>
+   
 
       {/* Floating Stars */}
       <div className="absolute inset-0 z-0 pointer-events-none">

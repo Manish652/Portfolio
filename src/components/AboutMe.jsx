@@ -1,12 +1,97 @@
-import { BrickWall, Code, User, Rocket, Star, Zap } from "lucide-react";
-import React from "react";
-import Reveal from "./Reveal"; // 👈 Your scroll animation component
+import { BrickWall, Code, User, Rocket, Star, Zap, GraduationCap, BookOpen, Award, MapPin, Calendar, Heart, Briefcase, Trophy, Target } from "lucide-react";
+import React, { useState } from "react";
+
+// Mock Reveal component for demonstration
+const Reveal = ({ children, delay = 0 }) => (
+  <div 
+    className="animate-fadeIn"
+    style={{ 
+      animationDelay: `${delay}s`,
+      animationFillMode: 'both'
+    }}
+  >
+    {children}
+  </div>
+);
 
 function AboutMe() {
+  const [activeTab, setActiveTab] = useState("education");
+
+  const tabs = [
+    { id: "education", label: "Education", icon: GraduationCap },
+    { id: "personal", label: "Personal Info", icon: User },
+    { id: "professional", label: "Professional Info", icon: Briefcase }
+  ];
+
+  const educationData = [
+    {
+      degree: "Bachelor of Computer Applications (BCA)",
+      field: "Computer Science & Engineering",
+      institution: "Contai College of Learning & Management Science",
+      location: "West Bengal, India",
+      duration: "2023 - 2026",
+      status: "Currently 3nd Year",
+      achievements: ["Dean's List", "Coding Club President"]
+    },
+    {
+      degree: "Higher Secondary (12th)",
+      field: "Science",
+      institution: "Kishorenagar Sachindra Siksha Sadan",
+      location: "Contai, West Bengal",
+      duration: "2015 - 2023",
+      status: "Completed",
+      achievements: ["85.2% Marks", "SOY"]
+    }
+  ];
+
+  const personalData = {
+    basic: {
+      name: "Manish Bhunia",
+      age: "20 years",
+      location: "Conati, West Bengal, India",
+      languages: ["Bengali (Native)", "English (Fluent)", "Hindi (Fluent)"],
+      interests: ["Web Developement","Cybersecurity Research", "Open Source", "AI/ML", "Space Science", "Philosophy"]
+    },
+    hobbies: [
+      { name: "Coding", desc: "Building side projects and contributing to open source" },
+      { name: "Reading", desc: "Tech blogs, research papers, and sci-fi novels" },
+      { name: "Problem Solving", desc: "Competitive programming and algorithm challenges" },
+      { name: "Music", desc: "Listening to electronic and ambient music while coding" }
+    ]
+  };
+
+  const professionalData = {
+    skills: {
+      languages: ["Python", "JavaScript", "C++", "Java", "TypeScript"],
+      frontend: ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
+      backend: ["Node.js", "Express.js", "Django", "REST APIs", "GraphQL"],
+      database: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
+      tools: ["Git", "Docker", "AWS", "Linux", "VS Code"]
+    },
+    experience: [
+      {
+        title: "Freelance Web Developer",
+        duration: "2024 - Present",
+        description: "Building responsive web applications and REST APIs for local businesses"
+      },
+      {
+        title: "Open Source Contributor",
+        duration: "2024 - Present",
+        description: "Contributing to various open source projects on GitHub"
+      }
+    ],
+    achievements: [
+      "Built 10+ full-stack web applications",
+      "Contributed to 5+ open source projects",
+      "Completed 3 major cybersecurity courses",
+      "Solved 50+ coding problems on LeetCode"
+    ]
+  };
+
   return (
     <section
       id="about"
-      className="py-24 px-4 relative min-h-screen overflow-hidden"
+      className="py-24 px-4  relative min-h-screen overflow-hidden"
     >
       {/* Cosmic Background Elements */}
       <div className="absolute inset-0 opacity-20">
@@ -22,143 +107,299 @@ function AboutMe() {
         {/* Title */}
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
               About{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Me
               </span>
-              <span className="text-2xl align-super">✨</span>
+              <span className="text-xl md:text-2xl align-super">✨</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full" />
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* LEFT: Description */}
-          <Reveal delay={0.1}>
-            <div className="space-y-8">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-2xl blur-xl" />
-                <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Rocket className="w-8 h-8 text-purple-400" />
-                    <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      MERN Stack Developer from India
-                    </h3>
-                  </div>
+        {/* Tab Navigation */}
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`group relative px-4 py-3 md:px-6 md:py-4 rounded-full font-semibold transition-all duration-300 backdrop-blur-sm border text-sm md:text-base ${
+                  activeTab === tab.id
+                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-purple-400 shadow-lg shadow-purple-500/25 scale-105"
+                    : "bg-slate-800/50 text-gray-300 border-gray-700/50 hover:border-purple-400/50 hover:text-purple-300 hover:scale-105"
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <tab.icon className="w-4 h-4 md:w-5 md:h-5" />
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
-                  <div className="space-y-6 text-lg">
-                    <p className="text-gray-300 leading-relaxed">
-                      Hi, I'm Manish Bhunia — a 2nd-year student with a passion for Backend Development and Cybersecurity. 
-                      I'm constantly learning and building projects that blend performance, scalability, and security.
-                    </p>
-                    <p className="text-gray-300 leading-relaxed">
-                      I'm a self-taught developer focused on building meaningful solutions — not chasing trends. 
-                      I've skipped PHP in favor of powerful stacks like Django and MERN, and I care about crafting clean, real-world applications.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                      <div>
-                        <h4 className="text-purple-400 font-semibold mb-2">Languages</h4>
-                        <p className="text-gray-400">Python, JavaScript, C++, Java</p>
+        {/* Tab Content */}
+        <div className="relative">
+          {/* Education Tab */}
+          {activeTab === "education" && (
+            <Reveal delay={0.2}>
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Educational Journey
+                  </h3>
+                  <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+                    My academic path in computer science and continuous learning
+                  </p>
+                </div>
+
+                <div className="grid gap-6 md:gap-8">
+                  {educationData.map((edu, index) => (
+                    <div key={index} className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105">
+                        <div className="flex flex-col md:flex-row md:items-start gap-4">
+                          <div className="flex-shrink-0">
+                            <div className="p-3 md:p-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg">
+                              <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                              <h4 className="text-lg md:text-xl font-semibold text-white">{edu.degree}</h4>
+                              <span className="text-sm text-purple-400 font-medium">{edu.duration}</span>
+                            </div>
+                            <p className="text-purple-300 font-medium mb-2">{edu.field}</p>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+                              <span className="text-gray-400 text-sm md:text-base">{edu.institution}</span>
+                              <div className="flex items-center gap-1 text-gray-500 text-sm">
+                                <MapPin className="w-3 h-3" />
+                                <span>{edu.location}</span>
+                              </div>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {edu.achievements.map((achievement, idx) => (
+                                <span key={idx} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                                  {achievement}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-purple-400 font-semibold mb-2">Communication</h4>
-                        <p className="text-gray-400">Bengali, English, Hindi</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          )}
+
+          {/* Personal Info Tab */}
+          {activeTab === "personal" && (
+            <Reveal delay={0.2}>
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Personal Information
+                  </h3>
+                  <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+                    Get to know me beyond the code
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                  {/* Basic Info */}
+                  <div className="group relative">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg">
+                          <User className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <h4 className="text-lg md:text-xl font-semibold text-white">Basic Info</h4>
                       </div>
-                      <div className="md:col-span-2">
-                        <h4 className="text-purple-400 font-semibold mb-2">Focus Areas</h4>
-                        <p className="text-gray-400">Backend Engineering, Web Security, System Design, AI/ML, Open Source</p>
+                      <div className="space-y-4">
+                        <div>
+                          <span className="text-blue-400 font-medium">Name:</span>
+                          <span className="text-gray-300 ml-2">{personalData.basic.name}</span>
+                        </div>
+                        <div>
+                          <span className="text-blue-400 font-medium">Age:</span>
+                          <span className="text-gray-300 ml-2">{personalData.basic.age}</span>
+                        </div>
+                        <div>
+                          <span className="text-blue-400 font-medium">Location:</span>
+                          <span className="text-gray-300 ml-2">{personalData.basic.location}</span>
+                        </div>
+                        <div>
+                          <span className="text-blue-400 font-medium">Languages:</span>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {personalData.basic.languages.map((lang, idx) => (
+                              <span key={idx} className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">
+                                {lang}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <span className="text-blue-400 font-medium">Interests:</span>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {personalData.basic.interests.map((interest, idx) => (
+                              <span key={idx} className="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs">
+                                {interest}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-8">
-                    <a
-                      href="#contact"
-                      className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-center"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Get In Touch
-                        <Zap className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                      </span>
-                    </a>
-                    <a
-                      href="/Manish-Bhunia-CV.pdf"
-                      download
-                      className="group px-8 py-4 border-2 border-purple-400/50 text-purple-300 rounded-full hover:bg-purple-400/10 transition-all duration-300 transform hover:scale-105 font-semibold text-center backdrop-blur-sm"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Download CV
-                        <Star className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                      </span>
-                    </a>
+                  {/* Hobbies */}
+                  <div className="group relative">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-lg">
+                          <Heart className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <h4 className="text-lg md:text-xl font-semibold text-white">Hobbies & Interests</h4>
+                      </div>
+                      <div className="space-y-4">
+                        {personalData.hobbies.map((hobby, idx) => (
+                          <div key={idx} className="border-l-2 border-emerald-400/30 pl-4">
+                            <h5 className="text-emerald-400 font-medium text-sm md:text-base">{hobby.name}</h5>
+                            <p className="text-gray-400 text-xs md:text-sm mt-1">{hobby.desc}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          )}
 
-          {/* RIGHT: 3 Feature Cards */}
-          <div className="space-y-6">
-            {[
-              {
-                title: "Web Developer",
-                desc: "I specialize in MERN stack with experience in Django, building full-stack apps, REST APIs, and dynamic UIs.",
-                Icon: Code,
-                gradient: "from-blue-400 to-cyan-400",
-                glow: "shadow-blue-500/25",
-              },
-              {
-                title: "Curious Thinker",
-                desc: "I research topics most ignore — from unexplained nature to how intelligence evolved. Every 'why' leads me to the deeper 'how.'",
-                Icon: User,
-                gradient: "from-purple-400 to-pink-400",
-                glow: "shadow-purple-500/25",
-              },
-              {
-                title: "Resilient Learner",
-                desc: "From web dev to cybersecurity and AI, I've explored multiple domains, and I keep pushing forward — even when it's tough.",
-                Icon: BrickWall,
-                gradient: "from-emerald-400 to-teal-400",
-                glow: "shadow-emerald-500/25",
-              },
-            ].map((item, idx) => (
-              <Reveal key={idx} delay={0.2 + idx * 0.1}>
-                <div
-                  className={`group relative backdrop-blur-sm bg-slate-800/40 border border-gray-700/50 rounded-2xl p-6 transition-all duration-300 hover:${item.glow} hover:scale-105 hover:-translate-y-1 overflow-hidden`}
-                >
-                  {/* Background Glow */}
-                  <div
-                    className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${item.gradient} blur-3xl`}
-                    style={{ zIndex: -1 }}
-                  />
+          {/* Professional Info Tab */}
+          {activeTab === "professional" && (
+            <Reveal delay={0.2}>
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Professional Information
+                  </h3>
+                  <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+                    My technical skills and professional journey
+                  </p>
+                </div>
 
-                  {/* Content */}
-                  <div className="flex items-start gap-4 relative z-10">
-                    <div
-                      className={`p-4 rounded-full bg-gradient-to-r ${item.gradient} shadow-lg transition-all duration-300 group-hover:rotate-6 group-hover:scale-110`}
-                    >
-                      <item.Icon className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                        {item.desc}
-                      </p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                  {/* Skills */}
+                  <div className="group relative">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg">
+                          <Code className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                        </div>
+                        <h4 className="text-lg md:text-xl font-semibold text-white">Technical Skills</h4>
+                      </div>
+                      <div className="space-y-4">
+                        {Object.entries(professionalData.skills).map(([category, skills]) => (
+                          <div key={category}>
+                            <h5 className="text-purple-400 font-medium capitalize mb-2 text-sm md:text-base">
+                              {category}:
+                            </h5>
+                            <div className="flex flex-wrap gap-2">
+                              {skills.map((skill, idx) => (
+                                <span key={idx} className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Floating Particles */}
-                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-2 right-2 w-1 h-1 bg-white rounded-full animate-ping" />
-                    <div className="absolute bottom-4 left-4 w-0.5 h-0.5 bg-purple-400 rounded-full animate-pulse" />
+                  {/* Experience & Achievements */}
+                  <div className="space-y-6">
+                    {/* Experience */}
+                    <div className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg">
+                            <Briefcase className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                          </div>
+                          <h4 className="text-lg md:text-xl font-semibold text-white">Experience</h4>
+                        </div>
+                        <div className="space-y-4">
+                          {professionalData.experience.map((exp, idx) => (
+                            <div key={idx} className="border-l-2 border-blue-400/30 pl-4">
+                              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                                <h5 className="text-blue-400 font-medium text-sm md:text-base">{exp.title}</h5>
+                                <span className="text-gray-500 text-xs">{exp.duration}</span>
+                              </div>
+                              <p className="text-gray-400 text-xs md:text-sm mt-1">{exp.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Achievements */}
+                    <div className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative bg-slate-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="p-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 shadow-lg">
+                            <Trophy className="h-5 w-5 md:h-6 md:w-6 text-white" />
+                          </div>
+                          <h4 className="text-lg md:text-xl font-semibold text-white">Achievements</h4>
+                        </div>
+                        <div className="space-y-3">
+                          {professionalData.achievements.map((achievement, idx) => (
+                            <div key={idx} className="flex items-center gap-3">
+                              <div className="w-2 h-2 bg-emerald-400 rounded-full flex-shrink-0" />
+                              <span className="text-gray-300 text-sm md:text-base">{achievement}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                  <a
+                    href="#contact"
+                    className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-center"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Get In Touch
+                      <Zap className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </span>
+                  </a>
+                  <a
+                    href="/Manish-Bhunia-CV.pdf"
+                    download
+                    className="group px-6 py-3 md:px-8 md:py-4 border-2 border-purple-400/50 text-purple-300 rounded-full hover:bg-purple-400/10 transition-all duration-300 transform hover:scale-105 font-semibold text-center backdrop-blur-sm"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Download CV
+                      <Star className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          )}
         </div>
 
         {/* Floating Cosmic Elements */}
@@ -177,6 +418,23 @@ function AboutMe() {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.6s ease-out;
+        }
+      `}</style>
     </section>
   );
 }

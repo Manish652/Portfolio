@@ -77,11 +77,13 @@ function NavBar() {
       }`}
     >
       <div className="container px-4 mx-auto flex items-center justify-between">
-        <a href="#hero" className="flex items-center space-x-2">
-          <img src="/m.png" alt="Logo" className="w-8 h-8" />
-          <span className="text-purple-400 font-semibold">^^</span>
-          <span className="text-gray-400 text-sm">portfolio</span>
-        </a>
+       <a href="#hero" className="flex items-center space-x-2 group transition-all duration-300 hover:scale-105 hover:text-purple-400">
+       <div className="relative w-10 h-10 rounded-full bg-purple-500/10 p-1 flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
+    <img src="/m.png" alt="Logo" className="w-12 h-12" />
+  </div>
+  <span className="text-gray-400 text-2xl group-hover:text-white transition-colors duration-300">Portfolio</span>
+     </a>
+
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-2">
