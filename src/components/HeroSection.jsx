@@ -222,7 +222,7 @@ const HeroSection = () => {
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto">
                   <div className="w-full h-full relative overflow-hidden rounded-full border-4 border-gradient-to-r from-purple-400 via-pink-400 to-blue-400 shadow-2xl shadow-purple-500/60 animate-profile-glow">
                     <img
-                      src="/icon.jpg"
+                      src="/go1.png"
                       alt="Manish Bhunia - MERN Stack Developer"
                       className="w-full h-full object-cover animate-subtle-zoom"
                       style={{ objectPosition: 'center' }}

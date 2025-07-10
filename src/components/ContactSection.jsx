@@ -13,6 +13,7 @@ import {
   Clock,
   Heart,
   Star,
+  Rocket
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -92,28 +93,28 @@ const ContactSection = () => {
       Icon: Linkedin,
       color: "from-blue-600 to-blue-700",
       name: "LinkedIn",
-      href: "https://linkedin.com/in/manishbhunia",
+      href: "https://www.linkedin.com/in/manish-bhunia-99637a28b/",
       hoverColor: "hover:shadow-blue-500/30"
     },
     {
       Icon: Twitter,
       color: "from-sky-500 to-sky-600",
       name: "Twitter",
-      href: "https://twitter.com/manishbhunia",
+      href: "#",
       hoverColor: "hover:shadow-sky-500/30"
     },
     {
       Icon: Instagram,
       color: "from-pink-500 to-pink-600",
       name: "Instagram",
-      href: "https://instagram.com/manishbhunia",
+      href: "#",
       hoverColor: "hover:shadow-pink-500/30"
     },
     {
       Icon: Twitch,
       color: "from-purple-600 to-purple-700",
       name: "Twitch",
-      href: "https://twitch.tv/manishbhunia",
+      href: "#",
       hoverColor: "hover:shadow-purple-500/30"
     },
   ];
@@ -225,7 +226,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white">Find Me Here</h3>
-                  <p className="text-gray-400 text-sm">Siliguri, West Bengal, India</p>
+                  <p className="text-gray-400 text-sm">Conati, West Bengal, India</p>
                 </div>
               </div>
               
@@ -387,7 +388,7 @@ const ContactSection = () => {
 
               <div className="mt-6 pt-6 border-t border-white/10">
                 <p className="text-center text-sm text-gray-400">
-                  🚀 Your message will be transmitted through the cosmic network
+                  🚀 Your message will be transmitted through the my Express Js Server
                 </p>
               </div>
             </div>
