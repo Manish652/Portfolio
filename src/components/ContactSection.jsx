@@ -65,15 +65,15 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: "Phone",
-      content: "+91 923455677",
-      link: "tel:+91923455677",
+      content: "+91 8653465607",
+      link: "tel:+918653465607",
       color: "from-green-400 to-emerald-400",
       description: "Let's talk directly"
     },
     {
       icon: MapPin,
       label: "Location",
-      content: "Siliguri, West Bengal, India",
+      content: "Contai, West Bengal, India",
       link: null,
       color: "from-purple-400 to-pink-400",
       description: "Where the magic happens"
