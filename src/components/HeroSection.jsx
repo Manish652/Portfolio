@@ -231,19 +231,7 @@ const HeroSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-purple-400/20 to-pink-400/20 animate-pulse" />
                   </div>
 
-                  {/* Sparkle Effects */}
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white rounded-full animate-sparkle"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                        animationDuration: `${1.5 + Math.random() * 1.5}s`,
-                      }}
-                    />
-                  ))}
+          
                 </div>
 
                 {/* Enhanced Status Indicator */}
