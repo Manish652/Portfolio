@@ -376,27 +376,7 @@ function AboutMe() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                  <a
-                    href="#contact"
-                    className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-center"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Get In Touch
-                      <Zap className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                    </span>
-                  </a>
-                  <a
-                    href="/Manish-Bhunia-CV.pdf"
-                    download
-                    className="group px-6 py-3 md:px-8 md:py-4 border-2 border-purple-400/50 text-purple-300 rounded-full hover:bg-purple-400/10 transition-all duration-300 transform hover:scale-105 font-semibold text-center backdrop-blur-sm"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Download CV
-                      <Star className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                    </span>
-                  </a>
-                </div>
+              
               </div>
             </Reveal>
           )}
@@ -419,6 +399,28 @@ function AboutMe() {
         </div>
       </div>
 
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                  <a
+                    href="#contact"
+                    className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-center"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Get In Touch
+                      <Zap className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </span>
+                  </a>
+                  <a
+                    href="/Manish_Bhunia_NodeJS_Developer.pdf"
+                    download
+                    className="group px-6 py-3 md:px-8 md:py-4 border-2 border-purple-400/50 text-purple-300 rounded-full hover:bg-purple-400/10 transition-all duration-300 transform hover:scale-105 font-semibold text-center backdrop-blur-sm"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Download CV
+                      <Star className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </span>
+                  </a>
+                </div>
+
       <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -434,7 +436,10 @@ function AboutMe() {
         .animate-fadeIn {
           animation: fadeIn 0.6s ease-out;
         }
+
       `}</style>
+
+
     </section>
   );
 }
