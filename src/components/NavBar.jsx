@@ -81,7 +81,7 @@ function NavBar() {
        <div className="relative w-10 h-10 rounded-full bg-purple-500/10 p-1 flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
     <img src="/m.png" alt="Logo" className="w-12 h-12" />
   </div>
-  <span className="text-gray-400 text-2xl group-hover:text-white transition-colors duration-300">Portfolio</span>
+  <span className="text-gray-400 text-2xl group-hover:text-white transition-colors duration-300">codedByManish</span>
      </a>
 
 
