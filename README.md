@@ -1,12 +1,41 @@
-# React + Vite
+# 🧠 Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, modern full-stack developer portfolio built with **React**, **Tailwind CSS**, and a **custom Express backend**. Designed to showcase skills, personal projects, and provide an interactive, responsive user experience.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive layout for mobile and desktop
+- Animated transitions and modern UI
+- Projects section with live/demo links
+- Skills section with icons using `react-icons`
+- Custom backend built with Express.js
+- Contact form routed via your own server (optional)
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Lucide React](https://lucide.dev/)
+
+### Backend
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+
+## 📁 Project Structure
+
+```bash
+├── client/               # Frontend (React + Vite)
+│   └── src/
+│       ├── components/
+│       ├── assets/
+│       ├── pages/
+│       └── main.jsx
+├── server/               # Custom Express backend
+│   ├── routes/
+│   ├── controllers/
+│   └── index.js
+├── package.json
+└── README.md
